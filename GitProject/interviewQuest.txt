@@ -1,0 +1,135 @@
+public class temp
+{
+    public static void main(String args[])
+    {
+        int ok=10;
+        switch(ok)
+        {
+            default:
+                System.out.println("default");
+            case 0:
+                System.out.println("true");
+            case 1:
+                System.out.println("false");
+        }
+    }
+}
+
+Ans: 
+default true false
+
+Since switch falls top to bottom and there is no break statement used after default and case block, so default true false will print.
+*********************
+
+public class temp
+{
+    public static void main(String args[])
+    {
+        boolean ok=true;
+        switch(ok)
+        {
+            case true:
+                System.out.println("true");
+            break;
+            case false:
+                System.out.println("false");
+            break;
+            default:
+                System.out.println("default");
+            break;
+        }       
+    }
+}
+
+Ans : Compilation time error "incompatible types" will occur, we cannot use boolean value with switch statement.
+
+************************** 
+public void foo( boolean a, boolean b)
+{ 
+    if( a ) 
+    {
+        System.out.println("A"); /* Line 5 */
+    } 
+    else if(a && b) /* Line 7 */
+    { 
+        System.out.println( "A && B"); 
+    } 
+    else /* Line 11 */
+    { 
+        if ( !b ) 
+        {
+            System.out.println( "notB") ;
+        } 
+        else 
+        {
+            System.out.println( "ELSE" ) ; 
+        } 
+    } 
+}
+If a is true and b is true then the output is "A && B"
+If a is true and b is false then the output is "notB"
+If a is false and b is true then the output is "ELSE"
+If a is false and b is false then the output is "ELSE"
+
+*****************************
+
+class A
+{
+    int i = 10;
+}
+ 
+class B extends A
+{
+    int i = 20;
+}
+ 
+public class MainClass
+{
+    public static void main(String[] args)
+    {
+        A a = new B();
+ 
+        System.out.println(a.i);
+    }
+}
+
+Ans: 10
+*******************************
+class A
+{
+    String s = "Class A";
+}
+ 
+class B extends A
+{
+    String s = "Class B";
+ 
+    {
+        System.out.println(super.s);
+    }
+}
+ 
+class C extends B
+{
+    String s = "Class C";
+ 
+    {
+        System.out.println(super.s);
+    }
+}
+ 
+public class MainClass
+{
+    public static void main(String[] args)
+    {
+        C c = new C();
+ 
+        System.out.println(c.s);
+    }
+}
+
+ANS: 
+Class A
+Class B
+Class C
+
